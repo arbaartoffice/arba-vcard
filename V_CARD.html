@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arba Office</title>
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #1a1a1a;
+        }
+
+        /* --- CARD CONTAINER --- */
+        .card {
+            background: #ffffff;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 30px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* --- HEADER SECTION --- */
+        .header {
+            background: #1a1a1a;
+            height: 120px;
+            position: relative;
+        }
+
+        .profile-pic-container {
+            width: 120px;
+            height: 120px;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 3px solid #1a1a1a;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #ffffff;
+            background-image: url('./Arba_Logo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- INFO SECTION --- */
+        .info {
+            margin-top: 70px;
+            padding: 0 20px;
+        }
+
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            color: #666666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* --- ACTION BUTTONS --- */
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-main {
+            background: #1a1a1a;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid #1a1a1a;
+        }
+
+        .btn-main:hover {
+            background: #333333;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+            border-color: #cccccc;
+        }
+
+        .icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #999999;
+            font-weight: 500;
+        }
+
+        /* --- ANIMATION --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Visual Header -->
+        <div class="header">
+            <div class="profile-pic-container">
+                <!-- Your logo image -->
+                <div class="profile-pic"></div>
+            </div>
+        </div>
+
+        <!-- Text Details -->
+        <div class="info">
+            <!-- EDIT: Company Name -->
+            <h1 class="company-name">Arba</h1>
+            <p class="tagline">Architecture Office</p>
+        </div>
+
+        <!-- Links/Buttons -->
+        <div class="actions">
+            <!-- EDIT: Phone Number (href="tel:..." and Display Text) -->
+            <a href="tel:+989121721773" class="btn btn-secondary">
+                <span class="icon">📞</span> +98 912 172 1773
+            </a>
+
+            <!-- EDIT: Website (href="..." and Display Text) -->
+            <a href="https://www.arbaoffice.com" target="_blank" class="btn btn-secondary">
+                <span class="icon">🌐</span> Website
+            </a>
+
+            <!-- EDIT: Instagram (replace YOUR_USERNAME with your Instagram handle) -->
+            <a href="https://www.instagram.com/arbaoffice" target="_blank" class="btn btn-secondary">
+                <span class="icon">📷</span> Instagram
+            </a>
+
+            <!-- EDIT: LinkedIn (replace YOUR_PROFILE with your LinkedIn URL) -->
+            <a href="" target="_blank" class="btn btn-secondary">
+                <span class="icon">💼</span> LinkedIn
+            </a>
+
+            <!-- Save Contact Button -->
+            <a href="#" onclick="downloadVCard()" class="btn btn-main">
+                <span class="icon">💾</span> Add to Contacts
+            </a>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Arba Office
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURATION --- 
+        // Update these variables with your actual details
+        const contactInfo = {
+            company: "Arba Office",
+            phone: "+989121721773",
+            website: "https://www.arbaoffice.com",
+            firstName: "Arba", // Usually just put Company name here for businesses
+            lastName: "Support"
+        };
+
+        function downloadVCard() {
+            // Construct the vCard content (VCF format)
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactInfo.company}
+ORG:${contactInfo.company}
+TEL;TYPE=WORK,VOICE:${contactInfo.phone}
+URL:${contactInfo.website}
+END:VCARD`;
+
+            // Create a blob for the file
+            const blob = new Blob([vcard], { type: "text/vcard" });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a temporary link to trigger download
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `${contactInfo.company.replace(/\s+/g, '_')}.vcf`;
+            
+            // Append, click, and clean up
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>
